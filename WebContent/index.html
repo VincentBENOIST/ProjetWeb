@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
-<meta charset="UTF-8">
+<title>Authentification</title>
+<!--source : Bootsnip.com -->
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="CSS/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="CSS/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+	<div class="main">
+		<div class="container">
+
+			<div class="row" id="pwd-container">
+				<div class="col-md-4"></div>
+
+				<div class="col-md-4">
+					<section class="login-form">
+						<form method="post" action="post" role="login">
+							<img src="img/lille1.png" class="img-responsive" alt="" />
+							 <input
+								type="text" name="login" placeholder="Nom d'utilisateur"
+								required class="form-control input-lg" value="" /> <input
+								type="password" class="form-control input-lg" id="password"
+								placeholder="mot de passe" name="password" />
+
+
+							<div class="pwstrength_viewport_progress"></div>
+
+
+							<button type="submit" name="go"
+								class="btn btn-lg btn-primary btn-block">Sign in</button>
+							<div>
+								<a href="#">Creer Un compte </a> ou <a href="#">Mot de passe
+									oublié ?</a>
+							</div>
+
+						</form>
+
+						<div class="form-links">
+							<a href="http://www.iut.univ-lille1.fr/">université lille 1</a>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
