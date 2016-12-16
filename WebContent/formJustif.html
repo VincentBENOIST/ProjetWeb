@@ -15,41 +15,54 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
 </head>
-<body>
-	<div class="container">
-		<form>
-			<div class="form-group row">
-				<label for="lgFormGroupInput"
-					class="col-sm-2 col-form-label col-form-label-lg">Nom
-					Etudiant</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control form-control-lg"
-						id="lgFormGroupInput" placeholder="toto">
+
+	<body>
+	<div class="main">
+		<div class="container">
+
+			<div class="row" id="pwd-container">
+				<div class="col-md-4"></div>
+
+				<div class="col-md-4">
+					<section class="login-form">
+						<h2><div align= center><p><span class="label label-primary">Saisie des absences</span> </p></div></h2>
+						<form method="GET" action="Verif_Authent" role="login">
+					
+								 <input	type="text" name="Libelle" placeholder="Motif de l'absence"
+								required class="form-control input-lg" value="" /> 
+								<input type="text" name="nom" placeholder="Nom de l'étudiant"
+								required class="form-control input-lg" id="nom" value=""/>
+								<input type="text" name="prenom" placeholder="Prénom de l'étudiant"
+								required class="form-control input-lg" id="prenom" value=""/>
+								<!-- <label> Date de début: </label> -->
+								<div align= center><p><span class="label label-primary">Date de début:</span> </p></div>
+								<input type="date" name="datedebut" placeholder="yyyy-mm-dd"
+								required class="form-control input-lg" id="datedebut" value=""/>
+								<div align= center><p><span class="label label-primary">Date de fin:</span> </p></div>
+								<input type="date" name="datefin" placeholder="yyyy-mm-dd"
+								required class="form-control input-lg" id="datefin" value=""/>
+								
+
+
+							<div class="pwstrength_viewport_progress"></div>
+
+
+							<button type="submit" 
+								class="btn btn-lg btn-primary btn-block">Register</button>
+							<div>
+								<a href="index.html">Déconnexion </a>
+							</div>
+
+						</form>
+
+						<div class="form-links">
+							<a href="http://www.iut.univ-lille1.fr/">université lille 1</a>
+						</div>
+					</section>
 				</div>
 			</div>
-			<div class="form-group row">
-				<label for="lgFormGroupInput"
-					class="col-sm-2 col-form-label col-form-label-lg">Libelle</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control form-control-lg"
-						id="lgFormGroupInput" placeholder="you@example.com">
-				</div>
-			</div>
-				<div class="row">
-					<label for="lgFormGroupInput"
-						class="col-sm-2 col-form-label col-form-label-lg">DateDebut</label>
-					<div class='col-sm-6'>
-						<input type="date" class="form-control" id='datetimepicker4' />
-					</div>
-			</div>
-				<div class="row">
-					<label for="lgFormGroupInput"
-						class="col-sm-2 col-form-label col-form-label-lg">DateFin</label>
-					<div class='col-sm-6'>
-						<input type="date" class="form-control" id='datetimepicker4' />
-					</div>
-				</div>
-		</form>
+		</div>
 	</div>
+
 </body>
 </html>
