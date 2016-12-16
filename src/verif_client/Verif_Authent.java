@@ -53,7 +53,7 @@ public class Verif_Authent extends HttpServlet {
 					// si cette personne est une secrataire
 					session.setAttribute("client", new Secretaire(login, mdp));
 					response.sendRedirect(
-							/* page liste abscences avec modif justif */"");
+							/* page liste abscences avec modif justif */"SaiseJustif");
 				} else if (rs.getString(5).equals("etudiant")) {
 					// si le resultat dit que cette personne est un etudiant
 					session.setAttribute("client", new Etudiant(login, mdp));

@@ -32,7 +32,7 @@ public class SaiseJustif extends HttpServlet {
 					+ "<link rel='stylesheet' href='CSS/bootstrap-3.3.7-dist/css/bootstrap.min.css'>"
 					+ "<link rel='stylesheet' href='CSS/font-awesome-4.7.0/css/font-awesome.min.css'>"
 					+ "<link rel='stylesheet' href='CSS/style.css'>" + "</head>");
-			
+			res.sendRedirect("formJustif.html");
 		}
     }
 }
