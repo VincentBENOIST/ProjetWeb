@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.filters.SetCharacterEncodingFilter;
+
 /**
  * Servlet implementation class ListerAbscencesEtu
  */
@@ -31,7 +33,7 @@ public class ListerAbscencesEtu extends HttpServlet {
 			PrintWriter out = res.getWriter();
 			Connection con = null;
 			out.print("<!DOCTYPE html>" + "<html>" + "<head>" + "<title>Authentification</title>"
-					+ "<!--source : Bootsnip.com -->" + "<meta charset='utf-8'>"
+					+ "<meta charset='utf-8'>"
 					+ "<meta http-equiv='X-UA-Compatible' content='IE=edge'>"
 					+ "<meta name='viewport' content='width=device-width, initial-scale=1'>"
 					+ "<link rel='stylesheet' href='CSS/bootstrap-3.3.7-dist/css/bootstrap.min.css'>"
@@ -72,7 +74,7 @@ public class ListerAbscencesEtu extends HttpServlet {
 					out.println("</tr>");
 
 				}
-				out.print("</table></div>");
+				out.print("</table><div><a href='index.html'>Déconnexion </a></div></div>");
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
