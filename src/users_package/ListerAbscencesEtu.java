@@ -53,11 +53,11 @@ public class ListerAbscencesEtu extends HttpServlet {
 				String query = "SELECT * from absence where login='" + login + "'";
 				ResultSet rs = state.executeQuery(query);
 				ResultSetMetaData rsmd = rs.getMetaData();
-				out.println("<table class=\"table-centered table-hover table-condensed\">");
+				out.println("<table class='table table-inverse'>");
 
-				out.println("<tr>");
+				out.println("<thead><tr>");
 				for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-					out.println("<td>" + rsmd.getColumnName(i) + "</td>");
+					out.println("<th>" + rsmd.getColumnName(i) + "</th>");
 					out.println();
 				}
 				out.println("</tr>");
@@ -66,6 +66,7 @@ public class ListerAbscencesEtu extends HttpServlet {
 					for (int i = 1; i <= rsmd.getColumnCount(); i++) {
 
 						out.println("<td>" + rs.getString(i) + "</td>");
+						System.out.println(rs.getString(i));
 					}
 
 					out.println("</tr>");

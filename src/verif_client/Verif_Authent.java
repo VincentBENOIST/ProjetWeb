@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import users_package.Etudiant;
+import users_package.ListerAbscencesEtu;
 import users_package.Professeur;
 import users_package.Secretaire;
 
@@ -56,7 +57,7 @@ public class Verif_Authent extends HttpServlet {
 				} else if (rs.getString(5).equals("etudiant")) {
 					// si le resultat dit que cette personne est un etudiant
 					session.setAttribute("client", new Etudiant(login, mdp));
-					response.sendRedirect(/* page liste abscences */"");
+					response.sendRedirect(/* page liste abscences */"ListerAbscencesEtu");
 				} else if (rs.getString(5).equals("prof")) {
 					// si cette personne est un prof
 					session.setAttribute("client", new Professeur(login, mdp));
