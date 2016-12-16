@@ -61,7 +61,7 @@ public class Verif_Authent extends HttpServlet {
 				} else if (rs.getString(5).equals("prof")) {
 					// si cette personne est un prof
 					session.setAttribute("client", new Professeur(login, mdp));
-					response.sendRedirect(/* page ajout abscences */"");
+					response.sendRedirect(/* page ajout abscences */"menuProf");
 				} else {
 					System.out.println("redirect");
 					response.sendRedirect("index.html");

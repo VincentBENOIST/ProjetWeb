@@ -37,6 +37,7 @@ public class menuProf extends HttpServlet {
 
 			Professeur prof = (Professeur) session.getAttribute("client");
 			String login = prof.getLogin();
+			res.sendRedirect("AjoutAbscence.html");
 		}
 	}
 }
