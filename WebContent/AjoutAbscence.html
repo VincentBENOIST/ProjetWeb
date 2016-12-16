@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Authentification</title>
+<title>Ajout d'une abscence</title>
 <!--source : Bootsnip.com -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,33 +19,23 @@
 
 			<div class="row" id="pwd-container">
 				<div class="col-md-4"></div>
-
 				<div class="col-md-4">
 					<section class="login-form">
 						<form method="GET" action="Verif_Authent" role="login">
-							<img src="img/lille1.png" class="img-responsive" alt="" />
-							 <input
-								type="text" name="login" placeholder="Nom d'utilisateur"
-								required class="form-control input-lg" value="" /> 
-								<input
-								type="password" class="form-control input-lg" id="password"
-								placeholder="mot de passe" name="password" />
+							<input type="text" name="nom" placeholder="Nom de l'étudiant"
+								required class="form-control input-lg" value="" /> <input
+								type="password" class="form-control input-lg"
+								placeholder="Prenom de l'etudiant" name="prenom" /> <input
+								type="text" class="form-control input-lg"
+								placeholder="yyyy-dd-mm" name="date" />
+
 
 							<div class="pwstrength_viewport_progress"></div>
 
 
-							<button type="submit" 
-								class="btn btn-lg btn-primary btn-block">Sign in</button>
-							<div>
-								<a href="#">Creer Un compte </a> ou <a href="#">Mot de passe
-									oublié ?</a>
-							</div>
-
+							<button type="submit" class="btn btn-lg btn-primary btn-block">
+								Ajouter</button>
 						</form>
-
-						<div class="form-links">
-							<a href="http://www.iut.univ-lille1.fr/">université lille 1</a>
-						</div>
 					</section>
 				</div>
 			</div>

@@ -1,13 +1,12 @@
 package users_package;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,7 +52,8 @@ public class ListerAbscencesEtu extends HttpServlet {
 				String query = "SELECT * from absence where login='" + login + "'";
 				ResultSet rs = state.executeQuery(query);
 				ResultSetMetaData rsmd = rs.getMetaData();
-				out.println("<table class='table table-inverse'>");
+				out.print("<div  align=center>");
+				out.println("<table class='table table-hover table-inverse'>");
 
 				out.println("<thead><tr>");
 				for (int i = 1; i <= rsmd.getColumnCount(); i++) {
@@ -72,13 +72,15 @@ public class ListerAbscencesEtu extends HttpServlet {
 					out.println("</tr>");
 
 				}
+				out.print("</table></div>");
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				try {
 					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
 
-				} catch (Exception e) {
 				}
 
 			}
