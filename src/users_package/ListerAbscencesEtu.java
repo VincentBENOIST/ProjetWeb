@@ -1,4 +1,5 @@
 package users_package;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -7,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +37,7 @@ public class ListerAbscencesEtu extends HttpServlet {
 			PrintWriter out = res.getWriter();
 			Connection con = null;
 			out.print("<!DOCTYPE html>" + "<html>" + "<head>" + "<title>Authentification</title>"
-					+ "<meta charset='utf-8'>"
-					+ "<meta http-equiv='X-UA-Compatible' content='IE=edge'>"
+					+ "<meta charset='utf-8'>" + "<meta http-equiv='X-UA-Compatible' content='IE=edge'>"
 					+ "<meta name='viewport' content='width=device-width, initial-scale=1'>"
 					+ "<link rel='stylesheet' href='CSS/bootstrap-3.3.7-dist/css/bootstrap.min.css'>"
 					+ "<link rel='stylesheet' href='CSS/font-awesome-4.7.0/css/font-awesome.min.css'>"
@@ -42,6 +45,25 @@ public class ListerAbscencesEtu extends HttpServlet {
 
 			Etudiant etudiant = (Etudiant) session.getAttribute("client");
 			String login = etudiant.getLogin();
+			List<Integer> listeAno = null;
+			try {
+				Class.forName("org.postgresql.Driver");
+
+				String url = "jdbc:postgresql://psqlserv/n3p1";
+				String nom = "benoistv";
+				String passwd = "moi";
+				con = DriverManager.getConnection(url, nom, passwd);
+				Statement state = con.createStatement();
+				ResultSet rs2 = state.executeQuery(
+						"SELECT * FROM justificatif as t1 , absence as t2 WHERE t1.loginetudiant=t2.login AND t1.datedebut=t2.datedebut");
+				listeAno = new ArrayList<>();
+				while (rs2.next()) {
+					listeAno.add(Integer.parseInt(rs2.getString(7)));
+				}
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 			try {
 				Class.forName("org.postgresql.Driver");
@@ -62,13 +84,16 @@ public class ListerAbscencesEtu extends HttpServlet {
 					out.println("<th>" + rsmd.getColumnName(i) + "</th>");
 					out.println();
 				}
-				ResultSet rs2 = state.executeQuery("SELECT * FROM justificatif as t1 INNER JOIN absence as t2 WHERE t1.loginetudiant=t2.login AND t1.datedebut=t2.datedebut");
 				while (rs.next()) {
-					out.println("<tr>");
+					if (listeAno.contains(Integer.parseInt(rs.getString(1)))) {
+						System.out.println("ok");
+						out.println("<tr class='bg-info'>");
+					} else {
+						out.println("<tr class='bg-danger'>");
+					}
 					for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-
 						out.println("<td>" + rs.getString(i) + "</td>");
-						System.out.println(rs.getString(i));
+
 					}
 
 					out.println("</tr>");

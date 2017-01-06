@@ -65,7 +65,7 @@ public class Justif_Absence extends HttpServlet {
 					max = Integer.parseInt(rs.getString(1))+1;
 				}
 				String insert = "Insert into justificatif values (" + max + ",'" + motif + "','" + debut + "','" + fin
-						+ "','" + secre + "','" + log + "');";
+						+ "','" + secre + "','" + log + "' WHERE datedebut IN(SELECT datedebut FROM absence);";
 				//System.out.println(insert);
 				state.executeUpdate(insert);
 				response.sendRedirect("formJustif.html");

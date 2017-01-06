@@ -37,6 +37,7 @@ public class SaisieAbs extends HttpServlet {
 			String nometu = request.getParameter("nom");
 			String prenom = request.getParameter("prenom");
 			String date = request.getParameter("date");
+			
 			nometu = StringEscapeUtils.escapeHtml4(nometu);
 			prenom = StringEscapeUtils.escapeHtml4(prenom);
 			date = StringEscapeUtils.escapeHtml4(date);
