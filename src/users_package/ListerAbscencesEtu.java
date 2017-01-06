@@ -62,7 +62,7 @@ public class ListerAbscencesEtu extends HttpServlet {
 					out.println("<th>" + rsmd.getColumnName(i) + "</th>");
 					out.println();
 				}
-				out.println("</tr>");
+				ResultSet rs2 = state.executeQuery("SELECT * FROM justificatif as t1 INNER JOIN absence as t2 WHERE t1.loginetudiant=t2.login AND t1.datedebut=t2.datedebut");
 				while (rs.next()) {
 					out.println("<tr>");
 					for (int i = 1; i <= rsmd.getColumnCount(); i++) {
